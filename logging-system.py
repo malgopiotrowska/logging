@@ -11,11 +11,15 @@ def logging ():
     if username not in users:
         print("This user name does not exist")
     else:
-        password = input("Please provide password")
-        if password == users[username]:
-            print("You are logged in, " + username + "!")
-        else:
-           print("Incorrect password")
+        while True:
+            password = input("Please provide password")
+            if password == users[username]:
+                print("You are logged in, " + username + "!")
+                break
+            else:
+                print("Incorrect password")
+    
+        
             
 
 def register():
@@ -31,13 +35,15 @@ def register():
             print("The passwords don't match")
 
 print("Welcome to MyApp!")
-decision = input("If you are a new user, please register by typing 'R'. \nIf you already have an account, type 'L' and log in")
-    
-if decision == "L":
-    logging()
-elif decision == 'R':
-    register()
-else:
-    print("The only acceptable responses are R or L")
+while True:
+    decision = input("If you are a new user, please register by typing 'R'. \nIf you already have an account, type 'L' and log in")    
+    if decision == "L":
+        logging()
+        break
+    elif decision == 'R':
+        register()
+        break
+    else:
+        print("The only acceptable responses are R or L")
 
 print(users)
